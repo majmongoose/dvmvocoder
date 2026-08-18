@@ -20,12 +20,14 @@ jobs:
         gh release create ${{ github.ref_name }}
 
   build-release:
+    needs: create-release
     uses: ./.github/workflows/linux-windows-cmake-build.yml
     with:
       release: true
       release_tag: ${{ github.ref_name }}
 
   build-release-android:
+    needs: create-release
     uses: ./.github/workflows/android-cmake-build.yml
     with:
       release: true
