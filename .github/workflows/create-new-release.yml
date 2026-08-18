@@ -24,3 +24,9 @@ jobs:
     with:
       release: true
       release_tag: ${{ github.ref_name }}
+
+  build-release-android:
+    uses: ./.github/workflows/android-cmake-build.yml
+    with:
+      release: true
+      release_tag: ${{ github.ref_name }}
